@@ -1,15 +1,15 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode: "none",
+  mode: 'none',
 
   entry: {
-    app: "./src/index.js"
+    app: './src/index.js'
   },
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
   },
 
   module: {
@@ -18,10 +18,15 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: 'style-loader',
+            options: {
+              insertAt: 'header',
+              insertInto: '#app',
+              singleton: true
+            }
           },
           {
-            loader: "css-loader"
+            loader: 'css-loader'
           }
         ]
       }
