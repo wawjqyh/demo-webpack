@@ -16,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
 
     // 指定 bundle 名
-    filename: 'app.js',
+    // filename: 'app.js',
 
     // 使用模板替换字符串，可以输出多个 bundle
     filename: '[name].min.[hash:5].js'
