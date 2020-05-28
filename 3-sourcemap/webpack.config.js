@@ -14,8 +14,7 @@ module.exports = {
     filename: '[name].min.[hash:5].js'
   },
 
-  // 开启 source map
-  devtool: 'source-map',
+  devtool: 'cheap-source-map',
 
   plugins: [
     new HtmlWebpackPlugin({
