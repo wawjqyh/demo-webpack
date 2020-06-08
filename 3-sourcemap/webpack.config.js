@@ -14,7 +14,7 @@ module.exports = {
     filename: '[name].min.[hash:5].js'
   },
 
-  devtool: 'cheap-source-map',
+  devtool: 'eval',
 
   plugins: [
     new HtmlWebpackPlugin({
