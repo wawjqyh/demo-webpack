@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'none',
+  stats: 'errors-only',
 
   entry: {
     app: './src/index.js'
@@ -17,20 +18,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            plugins: [
-              [
-                '@babel/plugin-transform-runtime',
-                {
-                  corejs: 2
-                }
-              ]
-            ]
-          }
-        },
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' }, // 将打包后的 css 注入到页面中
+          { loader: 'css-loader' } // 让 webpack 支持打包 css
+        ],
         exclude: '/node_modules/'
       }
     ]
@@ -45,5 +37,11 @@ module.exports = {
     }),
 
     new CleanWebpackPlugin()
-  ]
+  ],
+
+  devServer: {
+    port: 3000,
+    quiet: true,
+    contentBase: path.resolve(__dirname, 'dist')
+  }
 };

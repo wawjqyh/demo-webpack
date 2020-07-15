@@ -1,9 +1,8 @@
-let index = [1, 2, 3, 4].findIndex(item => {
-  return item === 3;
-});
+const sayHello = () => {
+  return new Promise((resolve, reject) => {
+    console.log('hello');
+    resolve();
+  });
+};
 
-console.log(index);
-
-async function func() {
-  return 233;
-}
+sayHello();
